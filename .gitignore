@@ -1,0 +1,6 @@
+.hyperframes/
+.media/
+node_modules/
+*.mp4
+assets/audio/take*.wav
+.DS_Store

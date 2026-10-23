@@ -1,0 +1,25 @@
+<template>
+  <style>
+
+    #root { position: absolute; inset: 0; font-family: var(--font-display, "Montserrat", sans-serif); pointer-events: none; }
+    .cap { position: absolute; left: 0; right: 0; top: 1620px; text-align: center; }
+    .cap .pill { display: inline-block; background: rgba(15,15,19,.78); color: #ebecef; font-weight: 700; font-size: 56px; line-height: 1.2; padding: 20px 40px; border-radius: 28px; }
+    .cap .w { display: inline-block; }
+    .cap .hi { color: #a5afe6; }
+  </style>
+  <div id="root" data-composition-id="captions" data-width="1080" data-height="1920">
+    <div id="cap1" class="clip cap" data-start="7.4" data-duration="2.8" data-layout-allow-caption-zone><div class="pill"><span class="w">Reads</span> <span class="w">your</span> <span class="w hi">messages</span></div></div>
+    <div id="cap2" class="clip cap" data-start="13.6" data-duration="3.4" data-layout-allow-caption-zone><div class="pill"><span class="w">See</span> <span class="w hi">exactly</span> <span class="w">where</span> <span class="w">it</span> <span class="w">goes</span></div></div>
+    <div id="cap3" class="clip cap" data-start="19.6" data-duration="3.8" data-layout-allow-caption-zone><div class="pill"><span class="w">Alerts</span> <span class="w hi">before</span> <span class="w">you</span> <span class="w">overspend</span></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const groups = [["#cap1", 7.4, 10.2], ["#cap2", 13.6, 17.0], ["#cap3", 19.6, 23.4]];
+    groups.forEach(([sel, start, end]) => {
+      tl.fromTo(sel + " .pill", { opacity: 0 }, { opacity: 1, duration: 0.1 }, start);
+      tl.fromTo(sel + " .w", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, stagger: 0.067, ease: "power2.out" }, start);
+      tl.to(sel + " .pill", { opacity: 0, duration: 0.12, ease: "power2.in" }, end - 0.14);
+    });
+    window.__timelines["captions"] = tl;
+  </script>
+</template>

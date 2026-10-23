@@ -1,0 +1,44 @@
+<template>
+  <style>
+
+    #root { position: absolute; inset: 0; background: #0f0f13; font-family: var(--font-display, "Montserrat", sans-serif); overflow: hidden; }
+    #insights-stage { position: absolute; inset: 0; }
+    .phone { position: absolute; left: 160px; top: 330px; width: 760px; height: 1528px; border-radius: 64px; background: #1c1c22; padding: 14px; box-shadow: 0 30px 80px rgba(0,0,0,.55); border: 1px solid #2a2a33; }
+    .phone .screen { width: 732px; height: 1500px; border-radius: 52px; overflow: hidden; background: #0f0f13; position: relative; }
+    .phone .screen img { position: absolute; left: 0; top: -66px; width: 732px; height: auto; }
+    #insights-cam { position: absolute; inset: 0; }
+    #insights-zoom { position: absolute; inset: 0; }
+    .card { position: relative; width: 900px; background: #1c1c22; border: 1.5px solid #7986cb33; border-radius: 16px; box-shadow: 0 4px 10px rgba(0,0,0,.05); padding: 26px 32px; display: flex; align-items: center; gap: 24px; color: #ebecef; }
+    .card .icon { flex: none; width: 88px; height: 88px; border-radius: 44px; background: #7986cb29; display: flex; align-items: center; justify-content: center; }
+    .card .icon img { width: 56px; height: 56px; }
+    .card .text { min-width: 0; }
+    .card .title { font-weight: 600; font-size: 36px; line-height: 1.3; }
+    .card .meta { color: #a5afe6; font-weight: 700; font-size: 28px; letter-spacing: .04em; margin-top: 8px; }
+    #insights-card { position: absolute; left: 90px; top: 120px; width: 900px; }
+    #insights-bar { position: absolute; left: 36px; height: 8px; width: 0; background: #7986cb; border-radius: 4px; }
+    #insights-ov { position: absolute; left: 0; top: -66px; width: 732px; height: auto; }
+
+  </style>
+  <div id="root" data-composition-id="insights" data-width="1080" data-height="1920">
+    <div id="insights-stage" class="clip" data-start="0" data-duration="6" data-layout-allow-overflow>
+      <div id="insights-cam">
+       <div id="insights-zoom">
+        <div class="phone" id="insights-phone"><div class="screen">
+            <img id="insights-s0" src="assets/screens/insights.png" alt="insights" />
+            <img id="insights-s1" src="assets/screens/insights_total.png" alt="insights_total" />
+        </div></div>
+       </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    gsap.set("#insights-s1", { opacity: 0, y: 260 });
+    tl.fromTo("#insights-cam", { scale: 1.18, x: 0, y: 0, filter: "blur(6px)", transformOrigin: "50% 50%" }, { scale: 1, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, 0);
+    tl.to("#insights-s0", { y: -260, opacity: 0, duration: 0.45, ease: "power2.inOut" }, 1.6);
+    tl.to("#insights-s1", { y: 0, opacity: 1, duration: 0.45, ease: "power2.inOut" }, 1.6);
+    tl.to("#insights-cam", { scale: 1.7, x: 0, y: -380, duration: 0.6, ease: "power2.inOut", transformOrigin: "50% 50%" }, 2.3);
+    tl.to("#insights-cam", { scale: 1, x: 0, y: 0, duration: 0.5, ease: "power2.inOut" }, 5.2);
+    window.__timelines["insights"] = tl;
+  </script>
+</template>
