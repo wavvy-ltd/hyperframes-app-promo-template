@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Chaptered, beginner-friendly "What's new" film -> storyboard.json.
+"""Chaptered, beginner-friendly "Meet Aisha" chat capabilities film -> storyboard.json.
 
 Each update is a section: chapter card (number, title, the everyday question) then the app
 walkthrough with tap rings on the exact control, punch-ins on the result, one caption per step.
@@ -33,136 +33,116 @@ def punch(ix, iy, scale, dur=0.6):
 
 
 ROWS = [
-    {"name": "Bank SMS import", "sub": "Bank wallet messages, read for you", "icon": "bank"},
-    {"name": "More ways to import", "sub": "Mobile money SMS and PDF statements", "icon": "phone"},
-    {"name": "Faster tagging", "sub": "Know right away if you're offline", "icon": "tag"},
-    {"name": "Fee tracking", "sub": "See what your transfers cost", "icon": "receipt"},
-    {"name": "Bill reminders", "sub": "Rent, internet, subscriptions", "icon": "bell"},
-    {"name": "Clearer money flow", "sub": "Money in, money out, more currencies", "icon": "swap"},
+    {"name": "Ask about spending", "sub": "Totals and top costs in seconds", "icon": "chart"},
+    {"name": "Find any payment", "sub": "By name, with dates and fees", "icon": "search"},
+    {"name": "Tag by chatting", "sub": "Say what a payment was for", "icon": "tag"},
+    {"name": "Add cash spending", "sub": "Cash counts too", "icon": "add"},
+    {"name": "Plan a trip", "sub": "Split it, track every shilling", "icon": "flight"},
+    {"name": "Themes and voice", "sub": "Change colours, or just speak", "icon": "mic"},
 ]
+A = "assets/screens/aisha/"
+INPUT = [70, 1806, 792, 1930]     # chat input box
+SEND = (850, 1868)                 # send / mic button
+ALLOW = (448, 1684)                # permission sheet: Allow Once
+PERM = [44, 1410, 856, 1576]       # permission sheet: what Aisha wants to do
 
-# ---- the film: list of scenes; feature moves anchored to ("line", offset) ----
+
+def ask(q_line, q_off, send_off, screen_after):
+    """input punch + mark, then tap send and show the reply screen"""
+    return [
+        (q_line, q_off, punch(430, 1760, 1.35, 0.5)),
+        (q_line, q_off + 0.4, {"kind": "mark", "box": INPUT, "hold": max(0.8, send_off - q_off - 1.2)}),
+        (q_line, send_off, {"kind": "tap", "x": SEND[0], "y": SEND[1], "lead": 0.6}),
+        (q_line, send_off + 0.35, {"kind": "show", "screen": screen_after, "settle": True}),
+        (q_line, send_off + 0.45, {"kind": "reset", "duration": 0.35}),
+    ]
+
+
+def reply(line, off, box, hold=2.4, scale=1.3):
+    cy = (box[1] + box[3]) / 2
+    return [
+        (line, off, punch(410, min(cy, 1560), scale, 0.55)),
+        (line, off + 0.5, {"kind": "mark", "box": box, "hold": hold}),
+    ]
+
+
 FILM = [
-    {"id": "intro", "type": "menu", "mode": "build", "lines": ["i1", "i2"], "rows": ROWS},
-    {"id": "popup", "type": "feature", "lines": ["i3"], "screens": ["whatsnew_dialog.png"], "transition": "whip-over", "from": "bottom",
+    {"id": "intro", "type": "menu", "mode": "build", "lines": ["i1", "i2"], "rows": ROWS,
+     "kicker": "Meet", "headline": "Aisha", "tile": "assets/brand/aisha.png", "tile_round": True},
+    {"id": "open", "type": "feature", "lines": ["h1", "h2"], "transition": "whip-over", "from": "bottom",
+     "screens": [A + "home0.png", A + "chat0.png", A + "chat1.png"],
      "moves": [
-         ("i3", 0.5, punch(440, 1000, 1.5, 0.7)),
-         ("i3", 1.3, {"kind": "mark", "box": [110, 610, 800, 1400], "hold": 2.6, "duration": 0.9}),
+         ("h1", 1.6, punch(700, 1800, 1.5, 0.6)),
+         ("h1", 2.5, {"kind": "tap", "x": 788, "y": 1860, "lead": 0.8}),
+         ("h1", 2.9, {"kind": "reset", "duration": 0.3}),
+         ("h1", 3.0, {"kind": "show", "screen": A + "chat0.png", "rise": True}),
+         ("h2", 0.3, punch(450, 980, 1.3, 0.5)),
+         ("h2", 0.6, {"kind": "mark", "box": [80, 780, 860, 1140], "hold": 1.6}),
+         ("h2", 2.4, {"kind": "reset", "duration": 0.3}),
+         ("h2", 3.0, {"kind": "tap", "x": 448, "y": 1220, "lead": 0.7}),
+         ("h2", 3.4, {"kind": "show", "screen": A + "chat1.png", "settle": True}),
+         ("h2", 3.8, punch(400, 1400, 1.25, 0.5)),
      ]},
-    {"id": "pick", "type": "menu", "mode": "pick", "pick": 1, "lines": ["i4"], "rows": ROWS},
-    {"id": "ch1", "type": "chapter", "n": 1, "steady": True, "title": "KCB M-Pesa messages", "question": "Do you use KCB M-Pesa?", "lines": ["c1q"]},
-    {"id": "kcb", "type": "feature", "lines": ["c1a", "c1n", "c1b", "c1c"], "label": {"n": "1", "text": "KCB M-Pesa"},
-     "screens": ["n_kcb.png", "k_auto_list.png", "g_home.png", "kcb_0_empty.png", "kcb_1_pasted.png", "kcb_2_parsed.png", "g_list2.png"],
-     "moves": [
-         ("c1a", 2.6, punch(450, 1130, 1.45, 0.7)),
-         ("c1a", 3.4, punch(450, 1130, 1.62, 3.4)),
-         ("c1a", 3.0, {"kind": "mark", "box": [40, 1000, 860, 1260], "hold": 3.8}),
-         ("c1n", -0.3, {"kind": "reset", "duration": 0.3}),
-         ("c1n", 0.1, {"kind": "show", "screen": "k_auto_list.png", "rise": True}),
-         ("c1n", 0.6, punch(450, 1365, 1.45)),
-         ("c1n", 1.0, {"kind": "mark", "box": [40, 1270, 870, 1450], "hold": 2.3}),
-         ("c1b", -0.3, {"kind": "reset", "duration": 0.3}),
-         ("c1b", 0.0, {"kind": "show", "screen": "g_home.png"}),
-         ("c1b", 2.3, {"kind": "tap", "x": 670, "y": 1690, "lead": 0.9}),
-         ("c1b", 2.6, {"kind": "show", "screen": "kcb_0_empty.png", "rise": True}),
-         ("c1b", 3.7, {"kind": "tap", "x": 100, "y": 320, "lead": 0.6}),
-         ("c1b", 4.2, {"kind": "show", "screen": "kcb_1_pasted.png"}),
-         ("c1b", 4.4, punch(450, 860, 1.3, 0.5)),
-         ("c1b", 5.9, {"kind": "reset", "duration": 0.3}),
-         ("c1b", 6.6, {"kind": "tap", "x": 240, "y": 1176, "lead": 0.5}),
-         ("c1c", -0.1, {"kind": "show", "screen": "kcb_2_parsed.png", "settle": True}),
-         ("c1c", 0.2, punch(450, 560, 1.5, 0.4)),
-         ("c1c", 0.3, {"kind": "mark", "box": [30, 455, 880, 640], "hold": 0.9}),
-         ("c1c", 1.1, {"kind": "reset", "duration": 0.3}),
-         ("c1c", 1.7, {"kind": "tap", "x": 480, "y": 304, "lead": 0.5}),
-         ("c1c", 2.1, {"kind": "show", "screen": "g_list2.png", "rise": True}),
-         ("c1c", 2.4, punch(450, 764, 1.4, 0.5)),
-     ]},
+    {"id": "pick", "type": "menu", "mode": "pick", "pick": 1, "lines": ["i4"], "rows": ROWS,
+     "kicker": "Meet", "headline": "Aisha", "tile": "assets/brand/aisha.png", "tile_round": True},
 
-    {"id": "ch2", "type": "chapter", "n": 2, "title": "MTN MoMo on iPhone", "question": "On iPhone in Rwanda?", "lines": ["c2q"]},
-    {"id": "momo", "type": "hook-cards", "lines": ["c2a", "c2b"], "preloaded": 0, "label": {"n": "2", "text": "iPhone · MTN MoMo", "top": 110},
-     "cards": [
-         {"title": "15,000 RWF transferred to Aline Uwase", "meta": "MTN MOMO · SMS", "icon": "assets/brand/momo.jpg"},
-         {"title": "Payment of 6,500 RWF to SIMBA SUPERMARKET", "meta": "MTN MOMO · SMS", "icon": "assets/brand/momo.jpg"},
-         {"title": "Received 50,000 RWF from Eric Habimana", "meta": "MTN MOMO · SMS", "icon": "assets/brand/momo.jpg"},
-         {"title": "MoMo statement, November 2026", "meta": "PDF STATEMENT", "icon": "assets/brand/momo.jpg"},
-     ],
-     "pops_at": [("c2a", 0.6), ("c2a", 1.6), ("c2a", 2.6), ("c2a", 3.8)],
-     "hero_at": ("c2b", 0.2), "hero_text": "Sorted / *for* *you*"},
+    {"id": "ch1", "type": "chapter", "n": 1, "kicker": "AISHA", "steady": True, "title": "Ask about your spending", "question": "Where did my money go?", "lines": ["c1q"]},
+    {"id": "spend", "type": "feature", "lines": ["c1a", "c1b", "c1c"], "label": {"n": "1", "text": "Ask about spending"},
+     "screens": [A + "c01_q.png", A + "c01_a.png", A + "c02_a.png"],
+     "moves": ask("c1a", 0.3, 4.6, A + "c01_a.png") + reply("c1b", 0.0, [79, 1458, 709, 1788], 3.2) + [
+         ("c1c", -0.3, {"kind": "reset", "duration": 0.3}),
+         ("c1c", 0.1, {"kind": "show", "screen": A + "c02_a.png", "rise": True}),
+     ] + reply("c1c", 0.9, [79, 1327, 709, 1788], 2.8)},
 
-    {"id": "ch3", "type": "chapter", "n": 3, "title": "A faster tag screen", "question": "What was that payment for?", "lines": ["c3q"]},
-    {"id": "tag", "type": "feature", "lines": ["c3a", "c3b", "c3c", "c3d"], "label": {"n": "3", "text": "Tagging"},
-     "screens": ["inout_list.png", "tag_offline.png", "tag_online.png", "tag_search.png", "tag_done.png"],
-     "moves": [
-         ("c3a", 0.1, punch(450, 1230, 1.3, 0.5)),
-         ("c3a", 2.0, {"kind": "tap", "x": 748, "y": 1208, "lead": 0.9}),
-         ("c3a", 2.4, {"kind": "reset", "duration": 0.3}),
-         ("c3b", -0.2, {"kind": "show", "screen": "tag_offline.png", "settle": True}),
-         ("c3b", 0.6, punch(450, 820, 1.5)),
-         ("c3b", 0.9, {"kind": "mark", "box": [50, 850, 860, 960], "hold": 5.0}),
-         ("c3b", 4.3, {"kind": "reset", "duration": 0.4}),
-         ("c3c", -0.1, {"kind": "show", "screen": "tag_online.png", "settle": True}),
-         ("c3c", 1.4, {"kind": "tap", "x": 448, "y": 988, "lead": 0.8}),
-         ("c3c", 1.9, {"kind": "show", "screen": "tag_search.png"}),
-         ("c3c", 3.4, {"kind": "tap", "x": 300, "y": 1040, "lead": 0.8}),
-         ("c3d", -0.1, {"kind": "show", "screen": "tag_done.png", "settle": True}),
-         ("c3d", 0.2, punch(450, 1180, 1.3, 0.5)),
-         ("c3d", 0.4, {"kind": "mark", "box": [40, 1150, 870, 1310], "hold": 2.0}),
-     ]},
+    {"id": "ch2", "type": "chapter", "n": 2, "kicker": "AISHA", "title": "Find any payment", "question": "Who did I pay, and when?", "lines": ["c2q"]},
+    {"id": "find", "type": "feature", "lines": ["c2a", "c2b"], "label": {"n": "2", "text": "Find any payment"},
+     "screens": [A + "c03_q.png", A + "c03_a.png"],
+     "moves": ask("c2a", 0.5, 3.9, A + "c03_a.png") + reply("c2b", 0.0, [79, 1327, 709, 1788], 3.6)},
 
-    {"id": "ch4", "type": "chapter", "n": 4, "title": "Transaction charges", "question": "How much do fees cost you?", "lines": ["c4q"]},
-    {"id": "charges", "type": "feature", "lines": ["c4a", "c4b"], "label": {"n": "4", "text": "Transaction charges"},
-     "screens": ["g_home.png", "ins_total.png"],
-     "moves": [
-         ("c4a", 0.9, {"kind": "tap", "x": 340, "y": 1890, "lead": 0.8}),
-         ("c4a", 1.3, {"kind": "show", "screen": "ins_total.png", "rise": True}),
-         ("c4a", 1.6, punch(450, 1310, 1.4, 0.5)),
-         ("c4a", 2.0, {"kind": "mark", "box": [90, 1230, 800, 1400], "hold": 0.8}),
-         ("c4b", 0.7, {"kind": "swipe-h", "from": "ins_total.png", "to": "ins_charges.png", "box": [0, 1090, 900, 1530], "duration": 0.6, "lead": 0.7}),
-         ("c4b", 1.7, punch(420, 1290, 1.7, 0.6)),
-         ("c4b", 2.2, {"kind": "mark", "box": [90, 1220, 820, 1400], "hold": 2.0}),
-     ]},
+    {"id": "ch3", "type": "chapter", "n": 3, "kicker": "AISHA", "title": "Tag by chatting", "question": "What was that payment for?", "lines": ["c3q"]},
+    {"id": "tagc", "type": "feature", "lines": ["c3a", "c3b", "c3c"], "label": {"n": "3", "text": "Tag by chatting"},
+     "screens": [A + "c04_q.png", A + "c04_perm.png", A + "c04_done.png"],
+     "moves": ask("c3a", 1.8, 4.4, A + "c04_perm.png") + [
+         ("c3b", 0.1, punch(450, 1560, 1.3, 0.5)),
+         ("c3b", 0.5, {"kind": "mark", "box": PERM, "hold": 1.8}),
+         ("c3b", 2.6, {"kind": "tap", "x": ALLOW[0], "y": ALLOW[1], "lead": 0.7}),
+         ("c3b", 3.0, {"kind": "reset", "duration": 0.3}),
+         ("c3c", -0.2, {"kind": "show", "screen": A + "c04_done.png", "settle": True}),
+     ] + reply("c3c", 0.2, [79, 1414, 709, 1788], 2.6)},
 
-    {"id": "ch5", "type": "chapter", "n": 5, "title": "Bill reminders", "question": "Ever forgotten a bill?", "lines": ["c5q"]},
-    {"id": "bills", "type": "feature", "lines": ["c5a", "c5b", "c5c", "c5d"], "label": {"n": "5", "text": "Bill reminders"},
-     "screens": ["g_home.png", "g_drawer.png", "rem_form.png", "rem_list.png", "notif_1.png"],
-     "moves": [
-         ("c5a", 0.9, {"kind": "tap", "x": 60, "y": 190, "lead": 0.8}),
-         ("c5a", 1.2, {"kind": "show", "screen": "g_drawer.png"}),
-         ("c5a", 2.5, {"kind": "tap", "x": 260, "y": 532, "lead": 0.8}),
-         ("c5b", -0.1, {"kind": "show", "screen": "rem_form.png", "rise": True}),
-         ("c5b", 0.4, punch(450, 1150, 1.3)),
-         ("c5b", 3.0, {"kind": "reset", "duration": 0.35}),
-         ("c5b", 3.6, {"kind": "tap", "x": 448, "y": 1820, "lead": 0.6}),
-         ("c5c", -0.1, {"kind": "show", "screen": "rem_list.png", "settle": True}),
-         ("c5c", 0.3, punch(450, 1230, 1.35)),
-         ("c5c", 0.6, {"kind": "mark", "box": [30, 800, 870, 1200], "hold": 2.0}),
-         ("c5d", -0.3, {"kind": "reset", "duration": 0.3}),
-         ("c5d", 0.0, {"kind": "show", "screen": "notif_1.png", "rise": True}),
-         ("c5d", 0.5, punch(450, 1200, 1.45)),
-         ("c5d", 1.2, {"kind": "mark", "box": [50, 1120, 860, 1240], "hold": 2.5}),
-         ("c5d", 2.4, punch(450, 1250, 1.55, 1.6)),
-     ]},
+    {"id": "ch4", "type": "chapter", "n": 4, "kicker": "AISHA", "title": "Add cash spending", "question": "Paid with cash?", "lines": ["c4q"]},
+    {"id": "cash", "type": "feature", "lines": ["c4a", "c4b"], "label": {"n": "4", "text": "Add cash spending"},
+     "screens": [A + "m07_q.png", A + "m07_perm.png", A + "m07_done.png"],
+     "moves": ask("c4a", 1.4, 5.4, A + "m07_perm.png") + [
+         ("c4b", 0.0, {"kind": "tap", "x": ALLOW[0], "y": ALLOW[1], "lead": 0.6}),
+         ("c4b", 0.4, {"kind": "show", "screen": A + "m07_done.png", "settle": True}),
+     ] + reply("c4b", 0.8, [79, 1502, 709, 1788], 2.0)},
 
-    {"id": "ch6", "type": "chapter", "n": 6, "title": "Money in, money out, and RWF", "question": "Money in, or money out?", "lines": ["c6q"]},
-    {"id": "inout", "type": "feature", "lines": ["c6a", "c6b", "c6c"], "label": {"n": "6", "text": "In, out, and RWF"},
-     "screens": ["g_list2.png", "g_tag_out.png", "g_tag_in.png", "n_rwf.png"],
-     "moves": [
-         ("c6a", 1.1, {"kind": "tap", "x": 750, "y": 1484, "lead": 0.9}),
-         ("c6a", 1.4, {"kind": "show", "screen": "g_tag_out.png", "rise": True}),
-         ("c6a", 1.9, punch(450, 484, 1.6)),
-         ("c6a", 2.4, {"kind": "mark", "box": [60, 410, 880, 510], "hold": 1.3}),
-         ("c6b", -0.4, {"kind": "reset", "duration": 0.3}),
-         ("c6b", -0.1, {"kind": "show", "screen": "g_list2.png"}),
-         ("c6b", 0.6, {"kind": "tap", "x": 750, "y": 962, "lead": 0.6}),
-         ("c6b", 0.9, {"kind": "show", "screen": "g_tag_in.png", "settle": True}),
-         ("c6b", 1.2, punch(450, 484, 1.6)),
-         ("c6b", 1.6, {"kind": "mark", "box": [60, 410, 880, 510], "hold": 1.8}),
-         ("c6c", -0.3, {"kind": "reset", "duration": 0.3}),
-         ("c6c", 0.0, {"kind": "show", "screen": "n_rwf.png", "rise": True}),
-         ("c6c", 1.0, punch(450, 1065, 1.45)),
-         ("c6c", 1.4, {"kind": "mark", "box": [40, 935, 860, 1150], "hold": 3.0}),
-         ("c6c", 3.6, punch(450, 1065, 1.65, 1.5)),
+    {"id": "ch5", "type": "chapter", "n": 5, "kicker": "AISHA", "title": "Plan a trip", "question": "Going away for the weekend?", "lines": ["c5q"]},
+    {"id": "trip", "type": "feature", "lines": ["c5a", "c5b", "c5c"], "label": {"n": "5", "text": "Plan a trip"},
+     "screens": [A + "m09_q.png", A + "m09_a.png", A + "m10_done.png"],
+     "moves": ask("c5a", 0.6, 4.4, A + "m09_a.png") + [
+         ("c5b", 0.0, punch(410, 1180, 1.25, 0.55)),
+         ("c5b", 0.5, {"kind": "mark", "box": [100, 1000, 700, 1400], "hold": 3.0}),
+         ("c5b", 4.6, punch(410, 1520, 1.25, 0.6)),
+         ("c5b", 5.0, {"kind": "mark", "box": [100, 1380, 700, 1620], "hold": 2.6}),
+         ("c5c", -0.3, {"kind": "reset", "duration": 0.3}),
+         ("c5c", 0.2, {"kind": "show", "screen": A + "m10_done.png", "rise": True}),
+     ] + reply("c5c", 0.9, [79, 1458, 709, 1788], 2.6)},
+
+    {"id": "ch6", "type": "chapter", "n": 6, "kicker": "AISHA", "title": "Themes and voice", "question": "Rather talk than type?", "lines": ["c6q"]},
+    {"id": "theme", "type": "feature", "lines": ["c6a", "c6b", "c6c"], "label": {"n": "6", "text": "Themes and voice"},
+     "screens": [A + "m11_q.png", A + "m11_perm.png", A + "m11_done.png", A + "m12_done.png", A + "m13_mic.png"],
+     "moves": ask("c6a", 0.2, 1.4, A + "m11_perm.png") + [
+         ("c6a", 2.0, {"kind": "tap", "x": ALLOW[0], "y": ALLOW[1], "lead": 0.5}),
+         ("c6a", 2.4, {"kind": "show", "screen": A + "m11_done.png", "settle": True}),
+         ("c6a", 2.7, {"kind": "mark", "box": [79, 1458, 709, 1788], "hold": 1.4}),
+         ("c6b", 0.2, {"kind": "show", "screen": A + "m12_done.png", "settle": True}),
+         ("c6b", 0.5, {"kind": "mark", "box": [79, 1650, 709, 1788], "hold": 1.4}),
+         ("c6c", 1.6, punch(450, 1760, 1.3, 0.5)),
+         ("c6c", 2.0, {"kind": "tap", "x": SEND[0], "y": SEND[1], "lead": 0.6}),
+         ("c6c", 2.4, {"kind": "show", "screen": A + "m13_mic.png", "settle": True}),
+         ("c6c", 2.7, {"kind": "mark", "box": [20, 1688, 860, 1784], "hold": 1.8}),
      ]},
 
     {"id": "endcard", "type": "endcard", "lines": ["o1"], "tile_at": 0.35, "name_at": 0.7, "claim_at": 1.3,
@@ -213,7 +193,7 @@ for sc in FILM:
 
 total = round(t, 2)
 sb = {
-    "title": "Wavvy Wallet — What's new (step by step)",
+    "title": "Wavvy Wallet — Meet Aisha, your money assistant",
     "brand": {"name": "Wavvy Wallet", "claim": "Know where your money is going.", "font": "Nunito",
               "font_files": {"200 1000": "assets/fonts/Nunito.ttf"}, "colors": C, "logo": "assets/brand/logo.png",
               "badges": [], "phone": PH},

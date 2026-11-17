@@ -1,214 +1,213 @@
-# Cue sheet — Wavvy Wallet — What's new (step by step) (167.9s)
+# Cue sheet — Wavvy Wallet — Meet Aisha, your money assistant (151.4s)
 
 | t | what |
 |---|---|
 |  0.00 | SCENE  menu (build) |
 |  0.05 | SFX  impact (title) |
-|  0.45 | VOICE  Wavvy Wallet just got better. |
-|  2.79 | SFX  whoosh (title up) |
-|  3.14 | VOICE  Here are six new updates, explained step by step. |
-|  3.39 | SFX  pop (menu row) |
-|  3.89 | SFX  click (menu row) |
-|  4.39 | SFX  pop (menu row) |
-|  4.89 | SFX  click (menu row) |
-|  5.39 | SFX  pop (menu row) |
-|  5.89 | SFX  click (menu row) |
-|  8.10 | SCENE  popup: whatsnew_dialog.png |
-|  8.10 | SFX  whoosh (popup whips in) |
-|  8.55 | VOICE  You'll find them in the What's New popup, after you update. |
-|  9.05 | SCENE  popup: punch-in ×1.5 |
-|  9.05 | SFX  click (punch-in) |
-|  9.85 | SCENE  popup: pencil mark |
-|  9.85 | SFX  pencil (pencil highlight) |
-| 12.77 | SCENE  menu (pick) |
-| 13.22 | VOICE  Let's start with number one. |
-| 14.12 | SFX  click (pick row) |
-| 15.46 | SFX  whoosh (badge flight) |
-| 16.08 | SCENE  chapter 1: KCB M-Pesa messages |
-| 16.53 | VOICE  Do you save or borrow with KCB M-Pesa? Now those messages can go into Wavvy too. |
-| 23.43 | SCENE  kcb: n_kcb.png |
-| 23.88 | VOICE  If you've allowed SMS access, there's nothing to do. Your KCB M-Pesa messages come in by themselves. |
-| 23.93 | CAPTION  Comes in *automatically* |
-| 26.48 | SCENE  kcb: punch-in ×1.45 |
-| 26.48 | SFX  click (punch-in) |
-| 26.88 | SCENE  kcb: pencil mark |
-| 26.88 | SFX  pencil (pencil highlight) |
-| 27.28 | SCENE  kcb: punch-in ×1.62 |
-| 27.28 | SFX  click (punch-in) |
-| 31.69 | VOICE  You get a notification, and the payment is already in your list. |
-| 31.74 | CAPTION  Notified, and *already* *in* |
-| 31.79 | SCENE  kcb: show k_auto_list.png |
-| 32.29 | SCENE  kcb: punch-in ×1.45 |
-| 32.29 | SFX  click (punch-in) |
-| 32.69 | SCENE  kcb: pencil mark |
-| 32.69 | SFX  pencil (pencil highlight) |
-| 36.18 | SCENE  kcb: show g_home.png |
-| 36.18 | VOICE  No SMS access? Tap Add Transaction, choose SMS, paste the message, and tap Next. |
-| 36.23 | CAPTION  No SMS access? Add *by* *hand* |
-| 38.48 | SFX  click (tap) |
-| 38.48 | SCENE  kcb: tap 670,1690 |
-| 38.78 | SCENE  kcb: show kcb_0_empty.png |
-| 39.88 | SCENE  kcb: tap 100,320 |
-| 39.88 | SFX  click (tap) |
-| 40.38 | SCENE  kcb: show kcb_1_pasted.png |
-| 40.58 | SCENE  kcb: punch-in ×1.3 |
-| 40.58 | SFX  click (punch-in) |
-| 42.78 | SCENE  kcb: tap 240,1176 |
-| 42.78 | SFX  click (tap) |
-| 43.63 | SCENE  kcb: show kcb_2_parsed.png |
-| 43.63 | SFX  pop (screen lands) |
-| 43.73 | VOICE  Wavvy reads it. Tap Import, and it's saved. |
-| 43.78 | CAPTION  Tap *Import* |
-| 43.93 | SCENE  kcb: punch-in ×1.5 |
-| 43.93 | SFX  click (punch-in) |
-| 44.03 | SCENE  kcb: pencil mark |
-| 44.03 | SFX  pencil (pencil highlight) |
-| 45.43 | SCENE  kcb: tap 480,304 |
-| 45.43 | SFX  click (tap) |
-| 45.83 | SCENE  kcb: show g_list2.png |
-| 46.13 | SCENE  kcb: punch-in ×1.4 |
-| 46.13 | SFX  click (punch-in) |
-| 47.51 | SCENE  chapter 2: MTN MoMo on iPhone |
-| 47.56 | SFX  pop (chapter badge) |
-| 47.96 | VOICE  Number two is for iPhone users with MTN MoMo. |
-| 53.22 | SCENE  hook: 4 cards pile in |
-| 53.67 | VOICE  You can now bring in your MoMo messages, and even your PDF statements. |
-| 53.72 | CAPTION  MoMo SMS + *PDF* statements |
-| 54.27 | SFX  pop (card lands) |
-| 55.27 | SFX  click (card lands) |
-| 56.27 | SFX  pop (card lands) |
-| 57.47 | SFX  click (card lands) |
-| 59.16 | VOICE  Wavvy sorts them into the right categories for you. |
-| 59.21 | CAPTION  Sorted *for* *you* |
-| 59.36 | SCENE  hero line: Sorted / *for* *you* |
-| 59.36 | SFX  whoosh (hero line) |
-| 62.90 | SCENE  chapter 3: A faster tag screen |
-| 62.95 | SFX  pop (chapter badge) |
-| 63.35 | VOICE  Number three. Tagging simply means saying what a payment was for, like food, rent, or family. |
-| 72.09 | SCENE  tag: inout_list.png |
-| 72.54 | VOICE  Tap any transaction that says, tap to tag. |
-| 72.59 | CAPTION  Look for *Tap* *to* *tag* |
-| 72.64 | SCENE  tag: punch-in ×1.3 |
-| 72.64 | SFX  click (punch-in) |
-| 74.54 | SCENE  tag: tap 748,1208 |
-| 74.54 | SFX  click (tap) |
-| 75.97 | SCENE  tag: show tag_offline.png |
-| 75.97 | SFX  pop (screen lands) |
-| 76.17 | VOICE  If your internet drops, the tag screen tells you straight away. Tagging needs internet, so just reconnect, and carry on. |
-| 76.22 | CAPTION  Offline? It *tells* *you* |
-| 76.77 | SFX  click (punch-in) |
-| 76.77 | SCENE  tag: punch-in ×1.5 |
-| 77.07 | SFX  pencil (pencil highlight) |
-| 77.07 | SCENE  tag: pencil mark |
-| 84.52 | SFX  pop (screen lands) |
-| 84.52 | SCENE  tag: show tag_online.png |
-| 84.62 | VOICE  Once you're back online, type what it was for, and pick a tag. |
-| 84.67 | CAPTION  Type, then pick a *tag* |
-| 86.02 | SFX  click (tap) |
-| 86.02 | SCENE  tag: tap 448,988 |
-| 86.52 | SCENE  tag: show tag_search.png |
-| 88.02 | SFX  click (tap) |
-| 88.02 | SCENE  tag: tap 300,1040 |
-| 89.47 | SCENE  tag: show tag_done.png |
-| 89.47 | SFX  pop (screen lands) |
-| 89.57 | VOICE  Done. The payment is now tagged. |
-| 89.62 | CAPTION  *Done!* |
-| 89.77 | SFX  click (punch-in) |
-| 89.77 | SCENE  tag: punch-in ×1.3 |
-| 89.97 | SCENE  tag: pencil mark |
-| 89.97 | SFX  pencil (pencil highlight) |
-| 92.85 | SCENE  chapter 4: Transaction charges |
-| 92.90 | SFX  pop (chapter badge) |
-| 93.30 | VOICE  Number four. Every time you send money, there's a small fee. Do you know how much they add up to? |
-| 100.94 | SCENE  charges: g_home.png |
-| 101.39 | VOICE  Open Insights, and find Total Expenses. |
-| 101.44 | CAPTION  Insights, *Total* *Expenses* |
-| 102.29 | SCENE  charges: tap 340,1890 |
-| 102.29 | SFX  click (tap) |
-| 102.69 | SCENE  charges: show ins_total.png |
-| 102.99 | SCENE  charges: punch-in ×1.4 |
-| 102.99 | SFX  click (punch-in) |
-| 103.39 | SCENE  charges: pencil mark |
-| 103.39 | SFX  pencil (pencil highlight) |
-| 105.00 | VOICE  Swipe that card to the left, and there are your transaction charges for the month. |
-| 105.05 | CAPTION  Swipe left for *charges* |
-| 105.70 | SCENE  charges: swipe left |
-| 105.70 | SFX  whoosh (swipe left) |
-| 106.70 | SCENE  charges: punch-in ×1.7 |
-| 106.70 | SFX  click (punch-in) |
-| 107.20 | SCENE  charges: pencil mark |
-| 107.20 | SFX  pencil (pencil highlight) |
-| 110.16 | SCENE  chapter 5: Bill reminders |
-| 110.21 | SFX  pop (chapter badge) |
-| 110.61 | VOICE  Number five. Never forget rent, internet, or Netflix again. |
-| 116.15 | SCENE  bills: g_home.png |
-| 116.60 | VOICE  Open the menu. Then choose, Bill Reminders. |
-| 116.65 | CAPTION  Menu, then *Bill* *Reminders* |
-| 117.50 | SCENE  bills: tap 60,190 |
-| 117.50 | SFX  click (tap) |
-| 117.80 | SCENE  bills: show g_drawer.png |
-| 119.10 | SFX  click (tap) |
-| 119.10 | SCENE  bills: tap 260,532 |
-| 120.53 | SCENE  bills: show rem_form.png |
-| 120.63 | VOICE  Add the bill's name, the due date, and how often it repeats. |
-| 120.68 | CAPTION  Name, date, *repeat* |
-| 121.03 | SCENE  bills: punch-in ×1.3 |
-| 121.03 | SFX  click (punch-in) |
-| 124.23 | SCENE  bills: tap 448,1820 |
-| 124.23 | SFX  click (tap) |
-| 124.96 | SFX  pop (screen lands) |
-| 124.96 | SCENE  bills: show rem_list.png |
-| 125.06 | VOICE  Wavvy reminds you the day before, and on the day. |
-| 125.11 | CAPTION  Alerts the *day* *before* |
-| 125.36 | SFX  click (punch-in) |
-| 125.36 | SCENE  bills: punch-in ×1.35 |
-| 125.66 | SFX  pencil (pencil highlight) |
-| 125.66 | SCENE  bills: pencil mark |
-| 128.71 | SCENE  bills: show notif_1.png |
-| 128.71 | VOICE  You choose which alerts you get in Settings, under Notifications. |
-| 128.76 | CAPTION  Settings, *Notifications* |
-| 129.21 | SCENE  bills: punch-in ×1.45 |
-| 129.21 | SFX  click (punch-in) |
-| 129.91 | SCENE  bills: pencil mark |
-| 129.91 | SFX  pencil (pencil highlight) |
-| 131.11 | SCENE  bills: punch-in ×1.55 |
-| 131.11 | SFX  click (punch-in) |
-| 133.87 | SCENE  chapter 6: Money in, money out, and RWF |
-| 133.92 | SFX  pop (chapter badge) |
-| 134.32 | VOICE  And number six. Money in and money out are now easier to tell apart, and Rwandan francs are supported. |
-| 143.28 | SCENE  inout: g_list2.png |
-| 143.73 | VOICE  When you tag a payment, money going out shows a minus, and an up arrow. |
-| 143.78 | CAPTION  *Minus* and up: money *out* |
-| 144.83 | SCENE  inout: tap 750,1484 |
-| 144.83 | SFX  click (tap) |
-| 145.13 | SCENE  inout: show g_tag_out.png |
-| 145.63 | SCENE  inout: punch-in ×1.6 |
-| 145.63 | SFX  click (punch-in) |
-| 146.13 | SCENE  inout: pencil mark |
-| 146.13 | SFX  pencil (pencil highlight) |
-| 148.64 | SCENE  inout: show g_list2.png |
-| 148.74 | VOICE  Money coming in shows a plus, and a down arrow. |
-| 148.79 | CAPTION  *Plus* and down: money *in* |
-| 149.34 | SCENE  inout: tap 750,962 |
-| 149.34 | SFX  click (tap) |
-| 149.64 | SFX  pop (screen lands) |
-| 149.64 | SCENE  inout: show g_tag_in.png |
-| 149.94 | SCENE  inout: punch-in ×1.6 |
-| 149.94 | SFX  click (punch-in) |
-| 150.34 | SCENE  inout: pencil mark |
-| 150.34 | SFX  pencil (pencil highlight) |
-| 153.27 | SCENE  inout: show n_rwf.png |
-| 153.27 | VOICE  And when a new MTN MoMo payment comes in, the notification shows it in Rwandan francs. |
-| 153.32 | CAPTION  MoMo alerts in *RWF* |
-| 154.27 | SCENE  inout: punch-in ×1.45 |
-| 154.27 | SFX  click (punch-in) |
-| 154.67 | SFX  pencil (pencil highlight) |
-| 154.67 | SCENE  inout: pencil mark |
-| 156.87 | SCENE  inout: punch-in ×1.65 |
-| 156.87 | SFX  click (punch-in) |
-| 160.65 | SCENE  end card: mark, name, claim, badges |
-| 160.65 | SFX  whoosh (flood) |
-| 161.00 | SFX  impact (mark lands) |
-| 161.10 | VOICE  That's what's new. Update Wavvy Wallet today, and know where your money is going. |
-| 162.55 | SFX  pop (badge) |
-| 162.95 | SFX  pop (badge) |
+|  0.45 | VOICE  Meet Aisha, the money assistant inside Wavvy Wallet. |
+|  4.55 | SFX  whoosh (title up) |
+|  4.90 | VOICE  Ask her anything, in plain words. Here are six things she can do for you. |
+|  5.15 | SFX  pop (menu row) |
+|  5.65 | SFX  click (menu row) |
+|  6.15 | SFX  pop (menu row) |
+|  6.65 | SFX  click (menu row) |
+|  7.15 | SFX  pop (menu row) |
+|  7.65 | SFX  click (menu row) |
+| 10.92 | SCENE  open: assets/screens/aisha/home0.png |
+| 10.92 | SFX  whoosh (open whips in) |
+| 11.37 | VOICE  To find her, open Wavvy Wallet, and tap Chat at the bottom. |
+| 11.42 | CAPTION  Tap *Chat* |
+| 12.97 | SCENE  open: punch-in ×1.5 |
+| 12.97 | SFX  click (punch-in) |
+| 13.87 | SFX  click (tap) |
+| 13.87 | SCENE  open: tap 788,1860 |
+| 14.37 | SCENE  open: show assets/screens/aisha/chat0.png |
+| 16.14 | VOICE  The first time, read the short note, then tap, Continue to chat. |
+| 16.19 | CAPTION  Tap *Continue* *to* *chat* |
+| 16.44 | SCENE  open: punch-in ×1.3 |
+| 16.44 | SFX  click (punch-in) |
+| 16.74 | SFX  pencil (pencil highlight) |
+| 16.74 | SCENE  open: pencil mark |
+| 19.14 | SCENE  open: tap 448,1220 |
+| 19.14 | SFX  click (tap) |
+| 19.54 | SCENE  open: show assets/screens/aisha/chat1.png |
+| 19.54 | SFX  pop (screen lands) |
+| 19.94 | SCENE  open: punch-in ×1.25 |
+| 19.94 | SFX  click (punch-in) |
+| 21.58 | SCENE  menu (pick) |
+| 22.03 | VOICE  Let's start with number one. |
+| 22.93 | SFX  click (pick row) |
+| 24.27 | SFX  whoosh (badge flight) |
+| 24.89 | SCENE  chapter 1: Ask about your spending |
+| 25.34 | VOICE  Number one. Ask Aisha about your spending. |
+| 29.16 | SCENE  spend: assets/screens/aisha/c01_q.png |
+| 29.61 | VOICE  Type a question, like, how much did I spend this month? Then tap send. |
+| 29.66 | CAPTION  Type, then tap *send* |
+| 29.91 | SCENE  spend: punch-in ×1.35 |
+| 29.91 | SFX  click (punch-in) |
+| 30.31 | SCENE  spend: pencil mark |
+| 30.31 | SFX  pencil (pencil highlight) |
+| 34.21 | SCENE  spend: tap 850,1868 |
+| 34.21 | SFX  click (tap) |
+| 34.56 | SCENE  spend: show assets/screens/aisha/c01_a.png |
+| 34.56 | SFX  pop (screen lands) |
+| 36.20 | SCENE  spend: punch-in ×1.3 |
+| 36.20 | VOICE  Aisha adds it all up in seconds, and shows how much is still untagged. |
+| 36.20 | SFX  click (punch-in) |
+| 36.25 | CAPTION  Totals in *seconds* |
+| 36.70 | SCENE  spend: pencil mark |
+| 36.70 | SFX  pencil (pencil highlight) |
+| 41.27 | VOICE  Ask where most of your money goes, and she names your biggest costs. |
+| 41.32 | CAPTION  Your *biggest* *costs* |
+| 41.37 | SCENE  spend: show assets/screens/aisha/c02_a.png |
+| 42.17 | SCENE  spend: punch-in ×1.3 |
+| 42.17 | SFX  click (punch-in) |
+| 42.67 | SCENE  spend: pencil mark |
+| 42.67 | SFX  pencil (pencil highlight) |
+| 45.63 | SCENE  chapter 2: Find any payment |
+| 45.68 | SFX  pop (chapter badge) |
+| 46.08 | VOICE  Number two. Find any payment, fast. |
+| 50.28 | SCENE  find: assets/screens/aisha/c03_q.png |
+| 50.73 | VOICE  Ask about anyone you pay. Show me my payments to Mary Wanjiku. |
+| 50.78 | CAPTION  Ask about *anyone* |
+| 51.23 | SFX  click (punch-in) |
+| 51.23 | SCENE  find: punch-in ×1.35 |
+| 51.63 | SCENE  find: pencil mark |
+| 51.63 | SFX  pencil (pencil highlight) |
+| 54.63 | SCENE  find: tap 850,1868 |
+| 54.63 | SFX  click (tap) |
+| 54.98 | SFX  pop (screen lands) |
+| 54.98 | SCENE  find: show assets/screens/aisha/c03_a.png |
+| 56.20 | SCENE  find: punch-in ×1.3 |
+| 56.20 | VOICE  She finds every payment, with the dates and fees, and even spots a pattern. |
+| 56.20 | SFX  click (punch-in) |
+| 56.25 | CAPTION  Dates, fees, *patterns* |
+| 56.70 | SCENE  find: pencil mark |
+| 56.70 | SFX  pencil (pencil highlight) |
+| 62.00 | SCENE  chapter 3: Tag by chatting |
+| 62.05 | SFX  pop (chapter badge) |
+| 62.45 | VOICE  Number three. Tag payments, just by chatting. |
+| 66.91 | SCENE  tagc: assets/screens/aisha/c04_q.png |
+| 67.36 | VOICE  Tell her what a payment was for. Tag the Kings Court payment as rent. |
+| 67.41 | CAPTION  Say what it was *for* |
+| 69.16 | SCENE  tagc: punch-in ×1.35 |
+| 69.16 | SFX  click (punch-in) |
+| 69.56 | SCENE  tagc: pencil mark |
+| 69.56 | SFX  pencil (pencil highlight) |
+| 71.76 | SCENE  tagc: tap 850,1868 |
+| 71.76 | SFX  click (tap) |
+| 72.11 | SCENE  tagc: show assets/screens/aisha/c04_perm.png |
+| 72.11 | SFX  pop (screen lands) |
+| 72.85 | VOICE  Aisha always asks before she changes anything. Tap, Allow Once. |
+| 72.90 | CAPTION  She *asks* *first* |
+| 72.95 | SCENE  tagc: punch-in ×1.3 |
+| 72.95 | SFX  click (punch-in) |
+| 73.35 | SCENE  tagc: pencil mark |
+| 73.35 | SFX  pencil (pencil highlight) |
+| 75.45 | SCENE  tagc: tap 448,1684 |
+| 75.45 | SFX  click (tap) |
+| 78.16 | SCENE  tagc: show assets/screens/aisha/c04_done.png |
+| 78.16 | SFX  pop (screen lands) |
+| 78.36 | VOICE  Done. Your rent is tagged, and she offers to do it every month. |
+| 78.41 | CAPTION  *Tagged!* |
+| 78.56 | SCENE  tagc: punch-in ×1.3 |
+| 78.56 | SFX  click (punch-in) |
+| 79.06 | SCENE  tagc: pencil mark |
+| 79.06 | SFX  pencil (pencil highlight) |
+| 83.42 | SCENE  chapter 4: Add cash spending |
+| 83.47 | SFX  pop (chapter badge) |
+| 83.87 | VOICE  Number four. Cash spending counts too. |
+| 87.91 | SCENE  cash: assets/screens/aisha/m07_q.png |
+| 88.36 | VOICE  Paid with cash? Just tell her. I paid two hundred and fifty shillings cash for lunch. |
+| 88.41 | CAPTION  Just *tell* *her* |
+| 89.76 | SCENE  cash: punch-in ×1.35 |
+| 89.76 | SFX  click (punch-in) |
+| 90.16 | SCENE  cash: pencil mark |
+| 90.16 | SFX  pencil (pencil highlight) |
+| 93.76 | SCENE  cash: tap 850,1868 |
+| 93.76 | SFX  click (tap) |
+| 94.11 | SCENE  cash: show assets/screens/aisha/m07_perm.png |
+| 94.11 | SFX  pop (screen lands) |
+| 95.09 | SCENE  cash: tap 448,1684 |
+| 95.09 | VOICE  Allow it, and the cash payment is added to your list. |
+| 95.09 | SFX  click (tap) |
+| 95.14 | CAPTION  Cash payment *added* |
+| 95.49 | SCENE  cash: show assets/screens/aisha/m07_done.png |
+| 95.49 | SFX  pop (screen lands) |
+| 95.89 | SCENE  cash: punch-in ×1.3 |
+| 95.89 | SFX  click (punch-in) |
+| 96.39 | SCENE  cash: pencil mark |
+| 96.39 | SFX  pencil (pencil highlight) |
+| 99.47 | SCENE  chapter 5: Plan a trip |
+| 99.52 | SFX  pop (chapter badge) |
+| 99.92 | VOICE  Number five. Plan ahead with Aisha. |
+| 103.70 | SCENE  trip: assets/screens/aisha/m09_q.png |
+| 104.15 | VOICE  Ask her to plan a weekend trip to Diani, with twenty thousand shillings. |
+| 104.20 | CAPTION  Plan a *trip* |
+| 104.75 | SCENE  trip: punch-in ×1.35 |
+| 104.75 | SFX  click (punch-in) |
+| 105.15 | SCENE  trip: pencil mark |
+| 105.15 | SFX  pencil (pencil highlight) |
+| 108.55 | SCENE  trip: tap 850,1868 |
+| 108.55 | SFX  click (tap) |
+| 108.90 | SCENE  trip: show assets/screens/aisha/m09_a.png |
+| 108.90 | SFX  pop (screen lands) |
+| 109.46 | VOICE  She splits it into transport, a place to stay, food, activities, and a little extra, and checks it against your usual spending. |
+| 109.46 | SFX  click (punch-in) |
+| 109.46 | SCENE  trip: punch-in ×1.25 |
+| 109.51 | CAPTION  Split into a *plan* |
+| 109.96 | SFX  pencil (pencil highlight) |
+| 109.96 | SCENE  trip: pencil mark |
+| 114.06 | SCENE  trip: punch-in ×1.25 |
+| 114.06 | SFX  click (punch-in) |
+| 114.46 | SFX  pencil (pencil highlight) |
+| 114.46 | SCENE  trip: pencil mark |
+| 118.63 | VOICE  Say yes, and she creates a trip category, so you can track every shilling. |
+| 118.68 | CAPTION  Every shilling *tracked* |
+| 118.83 | SCENE  trip: show assets/screens/aisha/m10_done.png |
+| 119.53 | SCENE  trip: punch-in ×1.3 |
+| 119.53 | SFX  click (punch-in) |
+| 120.03 | SCENE  trip: pencil mark |
+| 120.03 | SFX  pencil (pencil highlight) |
+| 124.21 | SCENE  chapter 6: Themes and voice |
+| 124.26 | SFX  pop (chapter badge) |
+| 124.66 | VOICE  And number six. Aisha can change the app, and listen too. |
+| 130.00 | SCENE  theme: assets/screens/aisha/m11_q.png |
+| 130.45 | VOICE  Ask for a purple theme, and the whole app changes colour. |
+| 130.50 | CAPTION  Ask for a *new* *colour* |
+| 130.65 | SCENE  theme: punch-in ×1.35 |
+| 130.65 | SFX  click (punch-in) |
+| 131.05 | SCENE  theme: pencil mark |
+| 131.05 | SFX  pencil (pencil highlight) |
+| 131.85 | SCENE  theme: tap 850,1868 |
+| 131.85 | SFX  click (tap) |
+| 132.20 | SCENE  theme: show assets/screens/aisha/m11_perm.png |
+| 132.20 | SFX  pop (screen lands) |
+| 132.45 | SCENE  theme: tap 448,1684 |
+| 132.45 | SFX  click (tap) |
+| 132.85 | SCENE  theme: show assets/screens/aisha/m11_done.png |
+| 132.85 | SFX  pop (screen lands) |
+| 133.15 | SCENE  theme: pencil mark |
+| 133.15 | SFX  pencil (pencil highlight) |
+| 134.50 | VOICE  Ask for green again, and it's back. |
+| 134.55 | CAPTION  Back to *green* |
+| 134.70 | SCENE  theme: show assets/screens/aisha/m12_done.png |
+| 134.70 | SFX  pop (screen lands) |
+| 135.00 | SCENE  theme: pencil mark |
+| 135.00 | SFX  pencil (pencil highlight) |
+| 137.23 | VOICE  Rather talk than type? Tap the microphone, and just speak. |
+| 137.28 | CAPTION  Tap the *mic* and speak |
+| 138.83 | SCENE  theme: punch-in ×1.3 |
+| 138.83 | SFX  click (punch-in) |
+| 139.23 | SCENE  theme: tap 850,1868 |
+| 139.23 | SFX  click (tap) |
+| 139.63 | SCENE  theme: show assets/screens/aisha/m13_mic.png |
+| 139.63 | SFX  pop (screen lands) |
+| 139.93 | SCENE  theme: pencil mark |
+| 139.93 | SFX  pencil (pencil highlight) |
+| 141.91 | SCENE  end card: mark, name, claim, badges |
+| 141.91 | SFX  whoosh (flood) |
+| 142.26 | SFX  impact (mark lands) |
+| 142.36 | VOICE  Aisha is in beta, so double check anything important. Open Wavvy Wallet, tap Chat, and say hello. |
+| 143.81 | SFX  pop (badge) |
+| 144.21 | SFX  pop (badge) |

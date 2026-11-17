@@ -258,6 +258,11 @@ class Build:
         "bank": "M4 10v7h3v-7H4zm6 0v7h3v-7h-3zM2 22h19v-3H2v3zm14-12v7h3v-7h-3zm-4.5-9L2 6v2h19V6l-9.5-5z",
         "phone": "M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z",
         "swap": "M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3L5 6.99h3V14h2V6.99h3L9 3z",
+        "chart": "M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z",
+        "search": "M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z",
+        "add": "M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z",
+        "flight": "M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z",
+        "mic": "M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z",
     }
 
     def scene_menu(self, s):
@@ -272,6 +277,7 @@ class Build:
             "    #%s-title { position: absolute; left: 0; right: 0; top: 300px; display: flex; flex-direction: column; align-items: center; transform-origin: 50%% 0%%; }\n"
             "    #%s-title .tile { width: 200px; height: 200px; border-radius: 52px; background: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 24px 60px rgba(17,17,17,.14); }\n"
             "    #%s-title .tile img { width: 176px; height: 176px; }\n"
+            "    #%s-title .tile.round { border-radius: 50%%; overflow: hidden; } #%s-title .tile.round img { width: 200px; height: 200px; }\n"
             "    #%s-title .k { margin-top: 56px; color: %s; font-weight: 800; font-size: 64px; letter-spacing: .01em; }\n"
             "    #%s-title .n { margin-top: 4px; color: %s; font-weight: 900; font-size: 128px; letter-spacing: -.03em; line-height: 1.02; }\n"
             "    .mrow { position: absolute; left: 80px; width: 920px; height: %dpx; background: #fff; border-radius: 30px; box-shadow: 0 10px 30px rgba(17,17,17,.08); border: 2px solid %s1f; display: flex; align-items: center; gap: 26px; padding: 0 30px; box-sizing: border-box; }\n"
@@ -281,7 +287,7 @@ class Build:
             "    .mrow .ic svg { width: 46px; height: 46px; fill: %s; }\n"
             "    .mrow .tx { color: %s; font-weight: 800; font-size: 54px; white-space: nowrap; }\n"
             "    .mrow .tx small { display: block; color: #5C6670; font-weight: 700; font-size: 32px; margin-top: 2px; }\n"
-        ) % (sid, c["accent"], c["accent"], sid, sid, sid, sid, c["accent"], sid, c["ink"], rh, c["accent"], c["accent"], c["accent"], c["accent"], c["ink"])
+        ) % (sid, c["accent"], c["accent"], sid, sid, sid, sid, sid, sid, c["accent"], sid, c["ink"], rh, c["accent"], c["accent"], c["accent"], c["accent"], c["ink"])
         rhtml = []
         for i, r in enumerate(rows):
             if r.get("img"):
@@ -291,8 +297,9 @@ class Build:
             sub = "<small>%s</small>" % esc(r["sub"]) if r.get("sub") else ""
             rhtml.append('<div class="mrow" id="%s-r%d" style="top: %dpx"><div class="bd" id="%s-b%d">%d</div><div class="ic">%s</div><div class="tx">%s%s</div></div>'
                          % (sid, i, top0 + i * (rh + gap), sid, i, i + 1, ic, esc(r["name"]), sub))
-        markup = ('      <div id="%s-glow"></div>\n      <div id="%s-title"><div class="tile"><img src="%s" alt="%s" /></div><div class="k">What\'s new in</div><div class="n">%s</div></div>\n      %s\n'
-                  % (sid, sid, esc(b["logo"]), esc(b["name"]), esc(b["name"]), "\n      ".join(rhtml)))
+        markup = ('      <div id="%s-glow"></div>\n      <div id="%s-title"><div class="tile%s"><img src="%s" alt="%s" /></div><div class="k">%s</div><div class="n">%s</div></div>\n      %s\n'
+                  % (sid, sid, " round" if s.get("tile_round") else "", esc(s.get("tile", b["logo"])), esc(b["name"]), esc(s.get("kicker", "What's new in")),
+                     esc(s.get("headline", b["name"])), "\n      ".join(rhtml)))
         tlj = []
         small = '{ scale: 0.6, y: -170 }'
         if mode == "build":
@@ -346,9 +353,9 @@ class Build:
             "    #%s-glow { position: absolute; left: 540px; top: 700px; width: 1400px; height: 1400px; margin: -700px 0 0 -700px; border-radius: 50%%; background: radial-gradient(circle, %s22 0%%, %s00 62%%); }\n"
         ) % (sid, sid, c["accent"], c["accent"], sid, c["accent"], sid, c["ink"], sid, sid, sid, c["accent"], sid, c["accent"], sid, c["accent"], c["accent"])
         dots = "".join('<div class="d%s"></div>' % (" on" if i + 1 == n else "") for i in range(total))
-        markup = ('      <div id="%s-glow"></div>\n      <div id="%s-wrap"><div id="%s-badge">%d</div><div id="%s-kick">NEW · %d OF %d</div>'
+        markup = ('      <div id="%s-glow"></div>\n      <div id="%s-wrap"><div id="%s-badge">%d</div><div id="%s-kick">%s · %d OF %d</div>'
                   '<div id="%s-title">%s</div><div id="%s-q">%s</div></div>\n      <div id="%s-dots">%s</div>\n') % (
-            sid, sid, sid, n, sid, n, total, sid, esc(s["title"]), sid, esc(s["question"]), sid, dots)
+            sid, sid, sid, n, sid, esc(s.get("kicker", "NEW")), n, total, sid, esc(s["title"]), sid, esc(s["question"]), sid, dots)
         tlj = [
             ('    tl.fromTo("#%s-badge", { scale: 1 }, { scale: 1.06, duration: 0.25, ease: "sine.out", yoyo: true, repeat: 1, immediateRender: false }, 0.02);' % sid) if s.get("steady") else
             '    tl.fromTo("#%s-badge", { scale: 0.4, rotate: -20 }, { scale: 1, rotate: 0, duration: 0.55, ease: "back.out(1.7)" }, 0.05);' % sid,
