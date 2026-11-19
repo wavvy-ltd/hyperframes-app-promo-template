@@ -10,7 +10,7 @@ OUT=${1:-promo}
 COMP=${2:-index.html}
 MODE=${3:-social}
 
-npx --yes hyperframes@0.8.186 render -c "./$COMP" --quality delivery --no-browser-gpu --output "$OUT.mp4"
+npx --yes hyperframes@0.8.186 render -c "./$COMP" --quality delivery --no-browser-gpu ${HF_WORKERS:+--workers $HF_WORKERS} --output "$OUT.mp4"
 if [ "$MODE" = "raw" ]; then
   npx --yes hyperframes@0.8.186 audio "$OUT.mp4" --json | python3 -c '
 import json,sys; d=json.load(sys.stdin)["items"][0]; print("delivered (raw):", d["duration"], "s", d["loudness"])'

@@ -13,6 +13,6 @@ for lid, text, _ in LINES:
     if only and lid not in only:
         continue
     t = " ".join(s.text for s in m.transcribe("assets/audio/story/%s.wav" % lid, language="en",
-                 initial_prompt="Wavvy Wallet, Aisha, Mary Wanjiku, Kings Court, Naivasha, Allow Once")[0]).strip()
+                 initial_prompt="Wavvy Wallet, Aisha, Netflix, Bill Reminders, Settings, Notifications")[0]).strip()
     r = difflib.SequenceMatcher(None, norm(text), norm(t)).ratio()
     print(f"{'OK ' if r > 0.85 else 'BAD'} {r:.2f} {lid}: {t}")

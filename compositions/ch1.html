@@ -15,10 +15,10 @@
 
   </style>
   <div id="root" data-composition-id="ch1" data-width="1080" data-height="1920">
-    <div id="ch1-stage" class="clip" data-start="0" data-duration="4.27" data-layout-allow-overflow>
+    <div id="ch1-stage" class="clip" data-start="0" data-duration="3.83" data-layout-allow-overflow>
       <div id="ch1-glow"></div>
-      <div id="ch1-wrap"><div id="ch1-badge">1</div><div id="ch1-kick">AISHA · 1 OF 6</div><div id="ch1-title">Ask about your spending</div><div id="ch1-q">Where did my money go?</div></div>
-      <div id="ch1-dots"><div class="d on"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div></div>
+      <div id="ch1-wrap"><div id="ch1-badge">1</div><div id="ch1-kick">REMINDERS · 1 OF 4</div><div id="ch1-title">Tagging reminder</div><div id="ch1-q">Payments piling up untagged?</div></div>
+      <div id="ch1-dots"><div class="d on"></div><div class="d"></div><div class="d"></div><div class="d"></div></div>
 
     </div>
   </div>
@@ -29,8 +29,8 @@
     tl.fromTo("#ch1-title", { y: 50, opacity: 0, filter: "blur(8px)" }, { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, 0.4);
     tl.fromTo("#ch1-q", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "expo.out" }, 0.9);
     tl.fromTo("#ch1-dots", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.5);
-    tl.fromTo("#ch1-glow", { scale: 0.85 }, { scale: 1.12, duration: 4.27, ease: "sine.inOut", immediateRender: false }, 0);
-    tl.fromTo("#ch1-wrap", { scale: 1 }, { scale: 1.04, duration: 3.37, ease: "sine.inOut", immediateRender: false }, 0.9);
+    tl.fromTo("#ch1-glow", { scale: 0.85 }, { scale: 1.12, duration: 3.83, ease: "sine.inOut", immediateRender: false }, 0);
+    tl.fromTo("#ch1-wrap", { scale: 1 }, { scale: 1.04, duration: 2.93, ease: "sine.inOut", immediateRender: false }, 0.9);
     window.__timelines["ch1"] = tl;
   </script>
 </template>
